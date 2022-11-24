@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import CategoryCard from './CategoryCard';
 
 const ProductCategory = () => {
+
+  const [categorys,setCatetgorys] = useState([])
+
+useEffect(()=>{
+  fetch("http://localhost:5000/product-categories")
+  .then(res=>res.json())
+  .then(data=>setCatetgorys(data))
+},[])
+
+//  console.log(categorys)
     return (
         <div className="  bg-rose-500 my-8 py-14">
         <div className="max-w-screen-sm sm:text-center sm:mx-auto">
@@ -35,16 +46,10 @@ const ProductCategory = () => {
         </div>
         <div className='grid gap-5 grid-cols-1 lg:grid-cols-3 w-4/5 mx-auto'>
             {
-                [...Array(3)].map(product=>
-                    <div className="card card-compact w-full  bg-base-100 shadow-xl px-6">
-                        <h1 className='text-2xl font-bold my-2'>Laptop</h1>
-                    <figure><img  src="https://placeimg.com/400/225/arch" alt="Shoes" className='h-full' /></figure>
-                    <div className="card-body">
-                      <div className="card-actions ">
-                        <button className="btn btn-xs btn-primary">Buy Now</button>
-                      </div>
-                    </div>
-                  </div>)
+                categorys?.map(category=><CategoryCard
+                key={category._id}
+                category={category}
+                ></CategoryCard>)
             }
         </div>
       </div>

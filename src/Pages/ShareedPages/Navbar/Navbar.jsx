@@ -5,15 +5,10 @@ import { UserAuth } from '../../../contex/AuthProvider';
 const Navbar = () => {
     const { user,logout } = useContext(UserAuth)
 
-    console.log(logout);
-
     const handleLogout =()=>{
        logout()
     }
 
-
-
-    console.log(user)
     const menuItem = <>
         <li className='font-semibold '><Link to="/">Home</Link></li>
         <li className='font-semibold '><Link to="/about">About</Link></li>
