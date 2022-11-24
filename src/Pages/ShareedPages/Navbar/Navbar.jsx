@@ -22,7 +22,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-rose-500 text-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -47,10 +47,10 @@ const Navbar = () => {
                                 <img src={user.photoURL} alt="userImage" title={user.displayName} />
                             </div>
                         </div>
-                        <button onClick={handleLogout} className="btn ml-2">Logout</button>
+                        <button onClick={handleLogout} className="btn bg-white text-rose-500 ml-2 border-0">Logout</button>
                     </> 
                     :
-                   <Link to="/login"><button className="btn ml-2">Login</button></Link>
+                   <Link to="/login"><button className="btn ml-2  bg-white text-rose-500 border-0">Login</button></Link>
                 }
             </div>
         </div>  
