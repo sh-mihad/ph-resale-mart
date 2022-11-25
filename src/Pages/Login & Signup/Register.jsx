@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import setToken from '../../Component/setToken';
 import { UserAuth } from '../../contex/AuthProvider';
 
@@ -9,7 +9,7 @@ const Register = () => {
 
     const { register, handleSubmit, formState: { errors },reset } = useForm()
     const { goolgeLogin, createUserAccoutn,updateName } = useContext(UserAuth)
-
+   const navigate = useNavigate()
     //2fbe1796a4bf3cd52ba5028ba7992a29
 
     const submitedLoginForm = data => {
@@ -36,7 +36,7 @@ const Register = () => {
                     updateName(name,image)
                     .then(()=>{
                        setToken(user,userCategory)
-                        toast.success("Register Success")
+                       navigate("/")
                         reset()
                       
                     })
@@ -57,7 +57,7 @@ const Register = () => {
             .then((res) => {
                 const user = res.user
                 setToken(user)
-                toast.success("success full login")
+                navigate("/")
             }).catch(err => {
                 toast.err(err.message)
             })
