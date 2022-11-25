@@ -1,5 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddProducts from "../Pages/AddProduct/AddProducts";
+import AllBuyers from "../Pages/Dashboard/AllBuyers";
+import AllSellers from "../Pages/Dashboard/AllSellers";
+import MyOrders from "../Pages/Dashboard/MyOrders";
+import MyProducts from "../Pages/Dashboard/MyProducts";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login & Signup/Login";
@@ -28,11 +32,6 @@ const router = createBrowserRouter([
                 element:<Register/>
             },
             {
-                path:"/add-product",
-                element:<AddProducts/>
-
-            },
-            {
                 path:"/category/:id",
                 loader:({params})=> fetch(`http://localhost:5000/products/${params.id}`),
                 element:<PrivetRouts><ProductCategoryPage/></PrivetRouts>
@@ -42,7 +41,32 @@ const router = createBrowserRouter([
     },
     {
         path:"/dashboard",
-        element:<DashboardLayout></DashboardLayout>
+        element:<DashboardLayout></DashboardLayout>,
+        errorElement:<ErrorPage/>,
+        children:[
+            {
+                path:"/dashboard/my-orders",
+                element:<MyOrders/>
+            },
+            {
+                path:"/dashboard/my-products",
+                element:<MyProducts/>
+            },
+            {
+                path:"/dashboard/add-product",
+                element:<AddProducts/>
+
+            },
+            {
+                path:"/dashboard/all-sellers",
+                element: <AllSellers/>
+            },
+            {
+                path:"/dashboard/all-buyers",
+                element:<AllBuyers/>
+            }
+        ]
+        
     }
 ])
 
