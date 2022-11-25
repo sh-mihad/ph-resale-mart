@@ -30,6 +30,8 @@ const ProductCategoryPage = () => {
             itemName = {order.name}
             location ={order.sellerLocation}
             itemPrice ={order.resalePrice}
+            setOrder={setOrder}
+            itemeId = {order._id}
             />
         }
         </div>

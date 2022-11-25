@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import setToken from '../../Component/setToken';
 import { UserAuth } from '../../contex/AuthProvider';
 
 const Login = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors },reset } = useForm()
    const {goolgeLogin,loging} = useContext(UserAuth)
  
 
@@ -17,7 +18,9 @@ const Login = () => {
         loging(email,password)
         .then(res=>{
             const user = res.user;
+            setToken(user)
             toast.success("Successfully Login")
+            
         }).catch(err=>toast.error(err.message))
     }
 
@@ -26,6 +29,8 @@ const Login = () => {
         goolgeLogin()
         .then((res)=>{
             const user = res.user
+            setToken(user)
+            reset()
             toast.success("success full login")
         }).catch(err=>{
            toast.err(err.message)

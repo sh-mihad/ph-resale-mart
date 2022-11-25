@@ -53,6 +53,7 @@ const AuthProvider = ({ children }) => {
     // logout user
     const logout =()=>{
         setLoadinig(true)
+        localStorage.removeItem("ph-resale-token")
         return signOut(auth)
     }
 

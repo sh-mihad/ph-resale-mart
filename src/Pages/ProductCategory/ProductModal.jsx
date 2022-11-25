@@ -1,44 +1,96 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 
-const ProductModal = ({BuyerName,BuyerEmail,itemPrice,itemName,location}) => {
+
+const ProductModal = ({ BuyerName, BuyerEmail, itemPrice, itemName, location, setOrder,itemeId }) => {
+
+
+    const handleBooking = (event) => {
+        event.preventDefault()
+        // setOrder(null)
+
+        const form = event.target;
+   
+        const name = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+
+        const booking ={
+            name,
+            email,
+            phone,
+            itemeId,
+            itemPrice,
+            location
+        }
+
+        fetch("http://localhost:5000/bookings",{
+            method:"POST",
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        }).then(res=>res.json())
+        .then(data=>{
+            if(data.acknowledged){
+                toast.success("Booking is Successfully Done")
+                setOrder(null)
+            }
+        })
+        .catch(err=>{
+            toast.error("Something went to wrong")
+        })
+
+      
+        
+
+    }
+
+
     return (
         <div>
             {/* The button to open modal */}
-           
+
 
             {/* Put this part before </body> tag */}
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box">
-                <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="font-bold text-2xl">{itemName}</h3>
-                   <div className='flex gap-5'>
-                   <h3 className="font-semi bold mt-5 text-lg">Prie : {itemPrice}</h3>
-                    <h3 className="font-semibold mt-5 text-lg">Location : {location}</h3>
-                   </div>
-                    <div className="form-control">
-                            <label className="label">
-                               
-                            </label>
-                            <input type="text" defaultValue={BuyerName} disabled className='input input-bordered' placeholder="email" />
 
-                        </div>
-                    <div className="form-control">
+                    <div className='flex gap-5 mt-5'>
+                    <h3 className="font-semiboldbold text-xl">Product Price : {itemPrice}</h3>  
+                    <h3 className="font-semiboldbold text-xl">Locaton: {location}</h3>  
+                    </div>
+
+                    <form onSubmit={handleBooking}>
+
+                        <div className="form-control">
                             <label className="label">
-                               
+
                             </label>
-                            <input type="email" defaultValue={BuyerEmail} disabled className='input input-bordered' placeholder="email" />
+                            <input type="text" name='name' defaultValue={BuyerName} readOnly className='input input-bordered' placeholder="email" />
 
                         </div>
                         <div className="form-control">
                             <label className="label">
-                               
+
                             </label>
-                            <input type="number"  className='input input-bordered' placeholder="Phone Number" />
+                            <input type="email" name='email' defaultValue={BuyerEmail} readOnly className='input input-bordered' placeholder="email" />
 
                         </div>
+                        <div className="form-control">
+                            <label className="label">
+
+                            </label>
+                            <input type="number" name='phone' required className='input input-bordered' placeholder="Phone Number" />
+
+                        </div>
+                        <input type="submit" className='btn w-full mt-4' value="Book Now" />
+                    </form>
                     <div className="modal-action">
-                        <label htmlFor="booking-modal" className="btn w-full">Book Now</label>
+
                     </div>
                 </div>
             </div>

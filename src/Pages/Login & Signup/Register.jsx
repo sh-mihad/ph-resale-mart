@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import setToken from '../../Component/setToken';
 import { UserAuth } from '../../contex/AuthProvider';
 
 const Register = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors },reset } = useForm()
     const { goolgeLogin, createUserAccoutn,updateName } = useContext(UserAuth)
 
     //2fbe1796a4bf3cd52ba5028ba7992a29
@@ -34,7 +35,10 @@ const Register = () => {
                     const user = res.user
                     updateName(name,image)
                     .then(()=>{
+                       setToken(user,userCategory)
                         toast.success("Register Success")
+                        reset()
+                      
                     })
                     .catch(err=>toast.error(err.message))
                 })
@@ -52,6 +56,7 @@ const Register = () => {
         goolgeLogin()
             .then((res) => {
                 const user = res.user
+                setToken(user)
                 toast.success("success full login")
             }).catch(err => {
                 toast.err(err.message)
@@ -102,8 +107,8 @@ const Register = () => {
 
                         </div>
                         <select className="select input-bordered input w-full max-w-xs" {...register("userCategory")}>
-                            <option value="Become a Buyer">Become a Buyer </option>
-                            <option value="Become a Seller">Become a Seller</option>
+                            <option value="Buyer">Become a Buyer </option>
+                            <option value="Seller">Become a Seller</option>
                         </select>
                         <div className="form-control">
                             <label className="label">
