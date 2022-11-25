@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AddProducts from "../Pages/AddProduct/AddProducts";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login & Signup/Login";
 import Register from "../Pages/Login & Signup/Register";
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
             {
                 path:"/register",
                 element:<Register/>
+            },
+            {
+                path:"/add-product",
+                element:<AddProducts/>
+
             },
             {
                 path:"/category/:id",
