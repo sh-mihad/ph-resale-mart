@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { UserAuth } from '../../contex/AuthProvider';
 
 const Register = () => {
@@ -117,10 +118,12 @@ const Register = () => {
 
                         <div className="form-control mt-6">
                             <input type="submit" className="btn btn-primary" value="Register" />
+                            <Link className='font-semibold  mt-4 text-blue-600' to="/login">Aready have an account</Link>
                         </div>
                     </form>
                     <div className="divider">OR</div>
                     <div className='card-body '>
+                    
                         <button onClick={handleGoolgeLogin} className="btn btn-primary">Login With Goole</button>
                     </div>
                 </div>

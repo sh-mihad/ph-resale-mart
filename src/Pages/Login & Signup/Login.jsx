@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { UserAuth } from '../../contex/AuthProvider';
 
 const Login = () => {
@@ -65,8 +66,10 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6">
                             <input type="submit" className="btn btn-primary" value="Login" />
+                            <Link className='font-semibold mt-4  text-blue-600' to="/register">Cretae an New Accout</Link>
                         </div>
                     </form>
+                   
                     <div className="divider">OR</div>
                     <div className='card-body '>
                        <button onClick={handleGoolgeLogin} className="btn btn-primary">Login With Goole</button>

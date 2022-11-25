@@ -2,12 +2,15 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { json } from 'react-router-dom';
+import Spinner from '../../Component/Spinner';
 import { UserAuth } from '../../contex/AuthProvider';
 
 const AddProducts = () => {
 
     const [categorys,setCatetgorys] = useState([])
+    const [loading ,setLoading] = useState(true)
    const {user} = useContext(UserAuth)
+
 //    console.log(user)
     useEffect(()=>{
       fetch("http://localhost:5000/product-categories")
@@ -18,8 +21,11 @@ const AddProducts = () => {
 //    console.log(categorys);
 
     const {register,handleSubmit,formState: { errors },reset} = useForm()
+
+
     const submitedLoginForm = data => {
         // console.log(data);
+        setLoading(true)
         const formData = new FormData();
         formData.append('image', data.photo[0]);
 
@@ -64,6 +70,7 @@ const AddProducts = () => {
 
                         toast.success("Your Product is sucecsesfuly Aded")
                         reset()
+                        setLoading(false)
                         
                     }
                 })
@@ -71,6 +78,10 @@ const AddProducts = () => {
             }
           
         })
+
+        if(loading){
+            return <Spinner/>
+        }
        
 
     }
