@@ -2,13 +2,17 @@ import React from 'react';
 
 const ProductCard = ({product,setOrder}) => {
     // console.log(product);
-    const {name,resalePrice,productPhoto,productDetails,productCondtion,phoneNumber,orginalPrice,sellerNmae,sellerLocation,yearsOfUse} = product
+    const {name,resalePrice,productPhoto,productDetails,productCondtion,phoneNumber,orginalPrice,sellerNmae,sellerLocation,yearsOfUse,
+      productStatus} = product
     return (
         <div className="card border pt-5 bg-base-100 shadow-xl">
         <figure><img src={productPhoto} alt="Shoes" /></figure>
         <div className="card-body">
           <h2 className="card-title">
           {name}
+         {
+          productStatus === "sold" &&  <div className="badge badge-secondary">{productStatus}</div>
+         }
           </h2>
           <div className="card-actions">
             <div className="badge badge-outline font-semibold p-2">Sale-Price : ${resalePrice}</div> 

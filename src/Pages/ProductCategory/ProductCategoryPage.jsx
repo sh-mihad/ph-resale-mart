@@ -10,7 +10,7 @@ const ProductCategoryPage = () => {
    const{user} = useContext(UserAuth)
     const products = useLoaderData();
 
-  
+  console.log(order);
    
     return (
         <div className='grid gap-10 w-11/12 mx-auto grid-cols-1 lg:grid-cols-3 my-32 '>
@@ -32,6 +32,7 @@ const ProductCategoryPage = () => {
             itemPrice ={order.resalePrice}
             setOrder={setOrder}
             itemeId = {order._id}
+            itemPhoto = {order.productPhoto}
             />
         }
         </div>

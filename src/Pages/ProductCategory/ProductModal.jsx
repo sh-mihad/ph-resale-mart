@@ -2,7 +2,7 @@ import React from 'react';
 import toast from 'react-hot-toast';
 
 
-const ProductModal = ({ BuyerName, BuyerEmail, itemPrice, itemName, location, setOrder,itemeId }) => {
+const ProductModal = ({ BuyerName, BuyerEmail, itemPrice, itemName, location, setOrder,itemeId ,itemPhoto}) => {
 
 
     const handleBooking = (event) => {
@@ -21,7 +21,9 @@ const ProductModal = ({ BuyerName, BuyerEmail, itemPrice, itemName, location, se
             phone,
             itemeId,
             itemPrice,
-            location
+            location,
+            itemName,
+            itemPhoto
         }
 
         fetch("http://localhost:5000/bookings",{

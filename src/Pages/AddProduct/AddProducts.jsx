@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { json } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 import Spinner from '../../Component/Spinner';
 import { UserAuth } from '../../contex/AuthProvider';
 
@@ -10,6 +10,7 @@ const AddProducts = () => {
     const [categorys,setCatetgorys] = useState([])
     const [loading ,setLoading] = useState(true)
    const {user} = useContext(UserAuth)
+   const navigate = useNavigate()
 
 //    console.log(user)
     useEffect(()=>{
@@ -71,6 +72,7 @@ const AddProducts = () => {
                         toast.success("Your Product is sucecsesfuly Aded")
                         reset()
                         setLoading(false)
+                        navigate("/dashboard/my-products")
                         
                     }
                 })
@@ -218,7 +220,7 @@ const AddProducts = () => {
                     </div>
 
                     <div className="form-control mt-6">
-                        <input type="submit" className="btn btn-primary w-full" value="Register" />
+                        <input type="submit" className="btn btn-primary w-full" value="Add Products" />
                     </div>
                 </form>
             </div>
