@@ -7,12 +7,6 @@ const MyOrders = () => {
 
     const { user } = useContext(UserAuth)
 
-    //    useEffect(()=>{
-    //     fetch(`http://localhost:5000/bookings?email=${user.email}`)
-    //     .then(res=>res.json())
-    //     .then(data=>console.log(data))
-    //    },[user.email])
-
     const { data: bookings, isLoading, } = useQuery({
         queryKey: ["bookings"],
         queryFn: async () => {
@@ -21,7 +15,7 @@ const MyOrders = () => {
             return data
         }
     })
-    console.log(bookings);
+    // console.log(bookings);
 
 
 
