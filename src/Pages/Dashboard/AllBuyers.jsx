@@ -6,14 +6,14 @@ const AllBuyers = () => {
     const { data:buyers, isLoading,refetch } = useQuery({
         queryKey: ["buyers"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/all-buyers`)
+            const res = await fetch(`https://ph-resale-mart-server-sh-mihad.vercel.app/all-buyers`)
             const data = await res.json()
             return data
         }
     })
 
     const handleAdmin =id=>{
-        fetch(`http://localhost:5000/user-admin/${id}`,{
+        fetch(`https://ph-resale-mart-server-sh-mihad.vercel.app/user-admin/${id}`,{
             method:"PUT"
         }).then(res=>res.json())
         .then(data=>{
@@ -24,7 +24,7 @@ const AllBuyers = () => {
         })
     }
     const handleUserDelete =id=>{
-       fetch(`http://localhost:5000/users/${id}`,{
+       fetch(`https://ph-resale-mart-server-sh-mihad.vercel.app/users/${id}`,{
         method:"DELETE",
        }).then(res=>res.json())
        .then(data=>{

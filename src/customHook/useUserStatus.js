@@ -5,7 +5,7 @@ const useUserStatus=(email)=>{
    console.log(email);
    useEffect(()=>{
     if(email){
-        fetch(`http://localhost:5000/users?email=${email}`,{
+        fetch(`https://ph-resale-mart-server-sh-mihad.vercel.app/users?email=${email}`,{
             headers:{
                 auhurizaton :`bearar ${localStorage.getItem("ph-resale-token")}`
             }

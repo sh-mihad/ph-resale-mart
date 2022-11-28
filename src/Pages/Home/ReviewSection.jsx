@@ -93,7 +93,7 @@ const ReviewSection = () => {
             title="Why i love C++"
             className="inline-block mb-3 text-2xl font-bold leading-5 text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
           >
-             Trust Selling Platform
+             Trustg Selling Platform
           </a>
           <p className="mb-5 text-gray-700">
             Sportacus andrew weatherall goose Refined gentlemen super mario des

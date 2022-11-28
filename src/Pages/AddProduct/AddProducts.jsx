@@ -14,7 +14,7 @@ const AddProducts = () => {
 
 //    console.log(user)
     useEffect(()=>{
-      fetch("http://localhost:5000/product-categories")
+      fetch("https://ph-resale-mart-server-sh-mihad.vercel.app/product-categories")
       .then(res=>res.json())
       .then(data=>setCatetgorys(data))
     },[])
@@ -57,7 +57,7 @@ const AddProducts = () => {
 
                 
 
-                fetch("http://localhost:5000/add-product",{
+                fetch("https://ph-resale-mart-server-sh-mihad.vercel.app/add-product",{
                     method:"POST",
                     headers:{
                         'Content-Type': 'application/json'

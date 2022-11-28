@@ -6,13 +6,13 @@ const AllAdmin = () => {
     const { data: admin, isLoading,refetch } = useQuery({
         queryKey: ["admin"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/all-admin`)
+            const res = await fetch(`https://ph-resale-mart-server-sh-mihad.vercel.app/all-admin`)
             const data = await res.json()
             return data
         }
     })
     const handleAdmin =id=>{
-        fetch(`http://localhost:5000/user-admin/${id}`,{
+        fetch(`https://ph-resale-mart-server-sh-mihad.vercel.app/user-admin/${id}`,{
             method:"PUT"
         }).then(res=>res.json())
         .then(data=>{
@@ -23,7 +23,7 @@ const AllAdmin = () => {
         })
     }
     const handleUserDelete =id=>{
-       fetch(`http://localhost:5000/users/${id}`,{
+       fetch(`https://ph-resale-mart-server-sh-mihad.vercel.app/users/${id}`,{
         method:"DELETE",
        }).then(res=>res.json())
        .then(data=>{

@@ -9,7 +9,7 @@ const MyProducts = () => {
     const { data: myProducts, refetch } = useQuery({
         queryKey: ["myProducts"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/get-products?email=${user?.email}`)
+            const res = await fetch(`https://ph-resale-mart-server-sh-mihad.vercel.app/get-products?email=${user?.email}`)
             const data = await res.json()
             console.log(data)
             return data;
@@ -18,7 +18,7 @@ const MyProducts = () => {
 
     // product status update handler
     const handleSold = (id) => {
-        fetch(`http://localhost:5000/product-status/${id}`, {
+        fetch(`https://ph-resale-mart-server-sh-mihad.vercel.app/product-status/${id}`, {
             method: "PUT",
 
         })
@@ -33,7 +33,7 @@ const MyProducts = () => {
 
     // produt delete handler
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/delete-products/${id}`, {
+        fetch(`https://ph-resale-mart-server-sh-mihad.vercel.app/delete-products/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

@@ -7,7 +7,7 @@ const MyProfile = () => {
     const { data: currrentUser, isLoading,error } = useQuery({
         queryKey: ["bookings"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users?email=${user.email}`,{
+            const res = await fetch(`https://ph-resale-mart-server-sh-mihad.vercel.app/users?email=${user.email}`,{
                 headers:{
                     auhurizaton :`bearar ${localStorage.getItem("ph-resale-token")}`
                 }
@@ -35,11 +35,11 @@ const MyProfile = () => {
             <div className='grid grid-cols-1 lg:grid-cols-2'>
             <p className='text-xl font-semibold'>
                 Name : <br />
-                <span className='text-2xl'>{currrentUser.name}</span>
+                <span className='text-2xl'>{currrentUser?.name}</span>
              </p>
              <p className='text-xl font-semibold'>
                 Email : <br />
-                <span className='text-2xl'>{currrentUser.email}</span>
+                <span className='text-2xl'>{currrentUser?.email}</span>
              </p>
             </div>
             </div>

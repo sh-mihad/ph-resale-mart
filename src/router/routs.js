@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddProducts from "../Pages/AddProduct/AddProducts";
+import Blog from "../Pages/Blog/Blog";
 import AllAdmin from "../Pages/Dashboard/AllAdmin";
 import AllBuyers from "../Pages/Dashboard/AllBuyers";
 import AllSellers from "../Pages/Dashboard/AllSellers";
@@ -34,8 +35,12 @@ const router = createBrowserRouter([
                 element:<Register/>
             },
             {
+                path:"/blog",
+                element:<Blog/>
+            },
+            {
                 path:"/category/:id",
-                loader:({params})=> fetch(`http://localhost:5000/products/${params.id}`),
+                loader:({params})=> fetch(`https://ph-resale-mart-server-sh-mihad.vercel.app/products/${params.id}`),
                 element:<PrivetRouts><ProductCategoryPage/></PrivetRouts>
                 
             }

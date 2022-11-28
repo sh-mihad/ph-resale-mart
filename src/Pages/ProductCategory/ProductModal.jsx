@@ -26,7 +26,7 @@ const ProductModal = ({ BuyerName, BuyerEmail, itemPrice, itemName, location, se
             itemPhoto
         }
 
-        fetch("http://localhost:5000/bookings",{
+        fetch("https://ph-resale-mart-server-sh-mihad.vercel.app/bookings",{
             method:"POST",
             headers:{
                 'Content-Type': 'application/json'
