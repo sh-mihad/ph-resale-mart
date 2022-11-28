@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const AllSellers = () => {
 
-    const { data: buyers, isLoading, } = useQuery({
+    const { data: buyers, isLoading, refetch} = useQuery({
         queryKey: ["buyers"],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/all-sellers`)
@@ -11,6 +12,28 @@ const AllSellers = () => {
             return data
         }
     })
+    const handleAdmin =id=>{
+        fetch(`http://localhost:5000/user-admin/${id}`,{
+            method:"PUT"
+        }).then(res=>res.json())
+        .then(data=>{
+            if(data.modifiedCount>0){
+                toast.success("Sucessfully Make Admin")
+                refetch()
+            }
+        })
+    }
+    const handleUserDelete =id=>{
+       fetch(`http://localhost:5000/users/${id}`,{
+        method:"DELETE",
+       }).then(res=>res.json())
+       .then(data=>{
+        if(data.deletedCount>0){
+            toast.success("Sucessfully Delete")
+            refetch()
+        }
+       })
+    }
     console.log(buyers);
 
 
@@ -55,9 +78,9 @@ const AllSellers = () => {
                                     <div className="dropdown dropdown-right dropdown-end">
                                         <label tabIndex={0} className="btn btn-outline btn-xs">Manage</label>
                                         <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                                            <li className='text-sm'><a>Make Admin</a></li>
-                                            <li className='text-sm'><a>Delete</a></li>
-                                        </ul>
+                                        <li disabled={buyer.userCategory==="Admin"} onClick={()=>handleAdmin(buyer._id)} className='text-sm'><a>Make Admin</a></li>
+                                        <li onClick={()=>handleUserDelete(buyer._id)} className='text-sm'><a>Delete</a></li>
+                                    </ul>
                                     </div>
                                 </th>
                             </tr>)

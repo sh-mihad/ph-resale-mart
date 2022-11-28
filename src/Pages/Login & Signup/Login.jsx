@@ -59,6 +59,7 @@ const Login = () => {
                             />
                             {errors.email && <p className='text-sm mt-2 text-red-700'>{errors.email.message}</p>}
                         </div>
+                       
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
@@ -72,6 +73,7 @@ const Login = () => {
                             {errors.password && <p className='text-sm mt-2 text-red-700'>{errors.password.message}</p>}
 
                         </div>
+                        
                         <div className="form-control mt-6">
                             <input type="submit" className="btn btn-primary" value="Login" />
                             <Link className='font-semibold mt-4  text-blue-600' to="/register">Cretae an New Accout</Link>

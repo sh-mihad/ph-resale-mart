@@ -22,7 +22,9 @@ const ProductCard = ({product,setOrder}) => {
           <p className='font-semibold'>Seller Name : {sellerNmae}</p>
           <p className='font-semibold'>Location : {sellerLocation}</p>
           <p className='font-semibold'>Years of use : {yearsOfUse} Year</p>
-         <label htmlFor="booking-modal" onClick={setOrder(product)} className="btn ">Get Product</label>
+       
+        <label htmlFor="booking-modal" disabled={productStatus==="sold"} onClick={setOrder(product)}  className="btn ">Get Product</label>
+       
          
         </div>
       </div>

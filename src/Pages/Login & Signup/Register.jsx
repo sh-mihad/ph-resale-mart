@@ -35,7 +35,12 @@ const Register = () => {
                     const user = res.user
                     updateName(name,image)
                     .then(()=>{
-                       setToken(user,userCategory)
+                        const currentUser ={
+                            name,
+                            email,
+                            userCategory
+                        }
+                       setToken(currentUser)
                        navigate("/")
                         reset()
                       
