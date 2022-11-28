@@ -6,7 +6,7 @@ const ReviewSection = () => {
             <div className="max-w-screen-sm sm:text-center sm:mx-auto">
      
           <h2 className="mb-4 font-sans text-3xl font-bold tracking-tight  sm:text-4xl sm:leading-none">
-          Explore From Categories
+         What Our Coustomer Says
           </h2>
           <p className="text-base  md:text-lg sm:px-4">
           Laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats. Lid est laborum dolo rumes fugats untras.
@@ -15,16 +15,6 @@ const ReviewSection = () => {
         </div>
       <div className="grid gap-8 my-16 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
         <div className="p-8 bg-white border rounded shadow-sm">
-          <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-            <a
-              href="/"
-              className="transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-              aria-label="Category"
-            >
-              weekend
-            </a>{' '}
-            <span className="text-gray-600">— 1 Feb 2020</span>
-          </p>
           <a
             href="/"
             aria-label="Article"
@@ -55,22 +45,12 @@ const ReviewSection = () => {
                 Vasile Melinte
               </a>
               <p className="text-sm font-medium leading-4 text-gray-600">
-                Author
+               Seller
               </p>
             </div>
           </div>
         </div>
         <div className="p-8 bg-white border rounded shadow-sm">
-          <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-            <a
-              href="/"
-              className="transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-              aria-label="Category"
-            >
-              holidays
-            </a>{' '}
-            <span className="text-gray-600">— 15 Nov 2020</span>
-          </p>
           <a
             href="/"
             aria-label="Article"
@@ -101,29 +81,19 @@ const ReviewSection = () => {
                 John Doe
               </a>
               <p className="text-sm font-medium leading-4 text-gray-600">
-                Author
+                Buyer
               </p>
             </div>
           </div>
         </div>
         <div className="p-8 bg-white border rounded shadow-sm">
-          <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-            <a
-              href="/"
-              className="transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-              aria-label="Category"
-            >
-              programming
-            </a>{' '}
-            <span className="text-gray-600">— 28 Dec 2020</span>
-          </p>
           <a
             href="/"
             aria-label="Article"
             title="Why i love C++"
             className="inline-block mb-3 text-2xl font-bold leading-5 text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
           >
-            Why i love C++
+             Trust Selling Platform
           </a>
           <p className="mb-5 text-gray-700">
             Sportacus andrew weatherall goose Refined gentlemen super mario des
@@ -147,7 +117,7 @@ const ReviewSection = () => {
                 Andrew Larkin
               </a>
               <p className="text-sm font-medium leading-4 text-gray-600">
-                Author
+               Seller
               </p>
             </div>
           </div>

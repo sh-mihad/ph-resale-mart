@@ -12,7 +12,9 @@ const Navbar = () => {
     const menuItem = <>
         <li className='font-semibold '><Link to="/">Home</Link></li>
         <li className='font-semibold '><Link to="/about">About</Link></li>
-        <li className='font-semibold '><Link to="/dashboard">Dashboard</Link></li>
+      {
+        user &&   <li className='font-semibold '><Link to="/dashboard">Dashboard</Link></li>
+      }
 
     </>
 

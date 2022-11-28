@@ -20,17 +20,31 @@ const MyProfile = () => {
         }
     })
 
+   
+
     // console.log(currrentUser);
     return (
-        <div className='m-12'>
-            <div className="avatar">
-                <div className="w-40 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+        <div className='card  p-10 bg-base-100 shadow-xl m-12 '>
+            <div className='block  md:flex gap-10 '>
+            <div className="avatar ">
+                <div className="w-40 mx-auto lg:mx-0 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     <img src={currrentUser?.photo} alt='' />
                 </div>
             </div>
-            {
-                currrentUser?.userCategory === "Buyer" && <button className='btn '>Make A seller</button>
-            }
+            <div className=' md:flex-1 my-4 lg:my-0'>
+            <div className='grid grid-cols-1 lg:grid-cols-2'>
+            <p className='text-xl font-semibold'>
+                Name : <br />
+                <span className='text-2xl'>{currrentUser.name}</span>
+             </p>
+             <p className='text-xl font-semibold'>
+                Email : <br />
+                <span className='text-2xl'>{currrentUser.email}</span>
+             </p>
+            </div>
+            </div>
+            </div>
+          
         </div>
     );
 };

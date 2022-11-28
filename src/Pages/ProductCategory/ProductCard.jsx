@@ -5,8 +5,8 @@ const ProductCard = ({product,setOrder}) => {
     const {name,resalePrice,productPhoto,productDetails,productCondtion,phoneNumber,orginalPrice,sellerNmae,sellerLocation,yearsOfUse,
       productStatus} = product
     return (
-        <div className="card border pt-5 bg-base-100 shadow-xl">
-        <figure><img src={productPhoto} alt="Shoes" /></figure>
+        <div className="card border  pt-5 bg-base-100 shadow-xl">
+        <figure><img src={productPhoto}  className="h-80" alt="Shoes" /></figure>
         <div className="card-body">
           <h2 className="card-title">
           {name}
