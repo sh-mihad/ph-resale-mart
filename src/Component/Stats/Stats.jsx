@@ -16,33 +16,33 @@ const Stats = () => {
 
         <div className="mt-8 sm:mt-12">
           <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div className="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center">
+            <div className="flex flex-col rounded-lg bg-rose-100 px-4 py-8 text-center">
               <dt className="order-last text-lg font-medium text-gray-500">
-                Total Sales
+                Products Sell
               </dt>
 
-              <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">
-                $4.8m
+              <dd className="text-4xl font-extrabold text-rose-500 md:text-5xl">
+                4.51k
               </dd>
             </div>
 
-            <div className="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center">
+            <div className="flex flex-col rounded-lg bg-rose-100 px-4 py-8 text-center">
               <dt className="order-last text-lg font-medium text-gray-500">
-                Official Addons
+                Products Seller
               </dt>
 
-              <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">
-                24
+              <dd className="text-4xl font-extrabold text-rose-500 md:text-5xl">
+                240
               </dd>
             </div>
 
-            <div className="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center">
+            <div className="flex flex-col rounded-lg bg-rose-100 px-4 py-8 text-center">
               <dt className="order-last text-lg font-medium text-gray-500">
-                Total Addons
+                Total Buyer
               </dt>
 
-              <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">
-                86
+              <dd className="text-4xl font-extrabold text-rose-500 md:text-5xl">
+                540
               </dd>
             </div>
           </dl>
